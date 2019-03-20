@@ -1,0 +1,17 @@
+{% extends 'vuefois/base.html' %}
+{% block content %}
+    <table class="table table-striped">
+        <thead><tr><th>#</th><th>Thumbnail</th><th>Title</th><th>Channel</th><th>View Count</th></tr></thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="https://www.youtube.com/watch?v={{ video.video_id }}"><img src="http://img.youtube.com/vi/{{ video.video_id }}/default.jpg" width="120" height="90" /></a></td>
+                <td><a href="https://www.youtube.com/watch?v={{ video.video_id }}">{{ video.title }}</a></td>
+                <td><a href="https://www.youtube.com/channel/{{ video.channel_id }}">{{ video.channel_name }}</a></td>
+                <td>{{ video.view_count }}</td>
+            </tr>
+        {%  endfor %}
+        </tbody>
+    </table>
+{% endblock %}
